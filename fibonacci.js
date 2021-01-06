@@ -6,7 +6,7 @@
 //Ainda conserto isso, tá fácil.
 
 function fibonacci(lim){
-    var fib = 1 
+    var fib = 1 // O fator inicial
     var n = 1
     var i = 0
         for (i = 0; n < lim; i++){
@@ -25,8 +25,7 @@ $( document ).ready(function() {
     //   $(document.body).remove('#scriptid').append(´<script id="scriptid" type="text/javascript" src="${src}"></script>´);
     //});
     $("#label").html("Insira o número")
-    $("#parametro1").attr("placeholder", "Número")
-    $("#parametro2").hide();
+    $('#parametros').append(`<input type="text" id="parametro1" placeholder="Insira o limite">`);
     $("#botao").click(function (){
         var limite = parseInt($('#parametro1').val())
         console.log('CLICK');
