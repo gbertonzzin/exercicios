@@ -24,7 +24,7 @@ $( document ).ready(function() {
     //   console.log(src)
     //   $(document.body).remove('#scriptid').append(´<script id="scriptid" type="text/javascript" src="${src}"></script>´);
     //});
-    $("#parametros").html("Insira o número")
+    $("#label").html("Insira o número")
     $("#parametro1").attr("placeholder", "Número")
     $("#parametro2").hide();
     $("#botao").click(function (){
