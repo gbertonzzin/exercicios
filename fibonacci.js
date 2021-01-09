@@ -1,18 +1,14 @@
 "use strict"
 
-//Esse exercício ainda não respeita estritamente o limite, ele só pára de calcular quando ultrapassa o limite.
-//A rigor, ele finaliza com o próximo número após o limite.
-//ex: limite é 32, ele retorna 64; limite é 31, ele retorna 32
-//Ainda conserto isso, tá fácil.
-
 function fibonacci(lim){
     var fib = 1 // O fator inicial
     var n = 1
-    var i = 0
-        for (i = 0; n < lim; i++){
+    var i = 1
+    $('body').append('Limite:', lim)
+        for (; 2*fib <= lim; i++){
         fib = fib + n;
         n = fib;
-        console.log(fib)
+        $('body').append(`<p>${i}º Numero:${fib}</p>`)
     }
 }
 

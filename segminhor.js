@@ -1,37 +1,47 @@
-console.log("teste");
-var uString = " "
-var seg = 0;
-var min = 0;
-var hor = 0;
+"use strict"
 
+var uString = " ";
+
+
+$(document).ready(function(){
+    $("#titulo").html("CALCULADORA DE UNIDADES DE TEMPO")
+    $("#descr").html("Transforma segundos, minutos e horas entre si")
+    $("#parametros").append(`
+        <input type="number" id="valor" placeholder="Valor"</input><br/>
+        <select id="unidade">
+        <option value="S">Segundos</option>
+        <option value="M">Minutos</option>
+        <option value="H">Horas</option>
+        </select>`);
+    $("#botao").click(function() {
+        var unidade = $("#unidade").val()
+        var valor = parseInt($("#valor").val())
+        console.log(unidade, valor)
+        segminhor(valor, unidade)
+    });
+});
 
 function segminhor(n, u){
+    var seg = 0;
+    var min = 0;
+    var hor = 0;
     if (u === "H") {
-        n == 1 ? (uString = "hora") : (uString = "horas");
+        uString = "hora"
         hor = n;
         min = n * 60;
         seg = n * 60 * 60;
     }
     else if (u === "M"){
-        n == 1 ? (uString = "minuto") : (uString = "minutos");
+        uString = "minuto"
         hor = n / 60;
         min = n;
         seg = n * 60;
     }
     else if (u === "S"){
-        n == 1 ? (uString = "segundo") : (uString = "segundos");
+        uString = "segundo";
         hor = n / 60 / 60;
         min = n / 60;
         seg = n;
     }
-    console.log(`${n} ${uString} ${n == 1 ? "resulta" : "resultam"} em ${hor} ${hor == 1 ? "hora" : "horas"}, ${min} ${min == 1 ? "minuto" : "minutos"} e ${seg} ${seg == 1 ? "segundo" : "segundos"}.`)
+    $('body').append(`<p>${n} ${n == 1 ? uString : uString,'s'} ${n == 1 ? "resulta" : "resultam"} em ${hor.toFixed(3)} ${hor <= 1 ? "hora" : "horas"}, ou ${min.toFixed(3)} ${min <= 1 ? "minuto" : "minutos"}, ou ${seg} ${seg == 1 ? "segundo" : "segundos"}.</p>`)
 }
-
-segminhor(5555, "M");
-segminhor(550055, "S");
-segminhor(55, "H");
-segminhor(6752, "M");
-segminhor(88311235, "S");
-segminhor(993745, "M");
-segminhor(55, "H");
-segminhor(76232753242, "S");

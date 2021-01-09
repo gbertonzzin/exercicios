@@ -1,0 +1,7 @@
+.coluna{
+    display: flex;
+    flex: 50%
+}
+.valor{
+    width: 100px;
+}

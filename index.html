@@ -2,26 +2,43 @@
     <meta charset="UTF-8">
     <html lang="pt-br">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link href="indexStyle.css" rel="stylesheet" type="text/css" />
+    <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>"
+    <link rel="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> -->
+
     
 <head>
 PÁGINA PARA TESTAR EXERCÍCIOS DE JAVASCRIPT
 </head>
 
 <body>
-    <h1 id="exercicio"></h1>
-    <div >
+    <h1 id="titulo"></h1>
+    <h3 id="descr"> </h3>
+    <div>
         <form id="entrada">
-            <label id="label">Aguardando parametros </label>
-        <div id="parametros"></div>
-            <button type='button' id="botao">OK</button> 
-            <!--Depois quero deixar pra mudar o script dinamicamente
+        <div class="coluna" id="parametros"></div>
+        <button type="button" id="botao">OK</button>  
+        </form> 
             <select id="scriptsrc">
-                <option value="addupto">addupto.js</option>
-                <option value="fibonacci">fibonacci.js</option>
+                <option value="somatoria">somatoria.js</option>
+                <option value="teste">teste.js</option>
                 <option value="media">media.js</option>
-                etc...
-              </select>  -->
-        </form>
+                <option value="segminhor">segminhor.js</option>
+            </select>
+
+            <script type='text/javascript'>
+            $(document).ready(function() {
+                
+                $('#scriptsrc').change(function() {
+                var src = $("#scriptsrc").val()
+                console.log(src)
+                //$('#scriptid').attr('src', `${src}.js`) // Nao funciona
+                //$('body').append(`<script id="scriptid" type="text/javascript" src="${src}.js"><\/script>`);// Tb nao funciona
+                //$.getScript(`${src}.js`) // Tb nao funciona
+                //$('body').remove('#scriptsrc')
+                })
+            })
+        </script>
         <script id="scriptid" type="text/javascript" src="media.js"></script>
 </body>
 

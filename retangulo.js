@@ -1,26 +1,23 @@
 "use strict"
 
-
-$( document ).ready(function() { //trocar o placeholder para ficar mais explicito
-    console.log( "TESTE" );
-    $("#parametros").html("Insira as dimensões do retângulo")
-    $("#parametro1").attr("placeholder", "Lado")
-    $("#parametro2").attr("placeholder", "Diagonal")
-    $("#botao").click(function teste(){
-        var par1 = parseInt($('#parametro1').val())
-        var par2 = parseInt($('#parametro2').val())
-        console.log(par1, par2, typeof par1, typeof par2)
-        calcular(par1, par2)
+$(document).ready(function() {
+    $("#titulo").html("CALCULADORA DE RETANGULO")
+    $("#descr").html("Calcula lado, perimetro e area de um retangulo")
+    $("#parametros").prepend(`<input type="numbertext" id="lado" placeholder="Um lado"> <br>
+                            <input type="number" id="diagonal" placeholder="A diagonal">`)
+    $("#botao").click(function (){
+        var lado = parseInt($('#lado').val())
+        var diag = parseInt($('#diagonal').val())
+        lado < diag ? calcular(lado, diag) : alert('O lado nao pode ser maior que a diagonal!');
     })
 });
 
 
-function calcular(p1, p2){
-     //p1 é o cateto, p2 é a hipotenusa (diagonal do retangulo)
-    //pitágoras: (p1**2 + cateto**2) = p2**2
- //   const cateto = Math.sqrt(p1**2 - p2**2)
- //   const perimetro = ((p1*2) + (cateto*2))
- //   const area = p1*cateto
-//    console.log( perimetro, area)
+function calcular(l, d){
+    let lX = Math.sqrt((d*d) - (l*l));
+    let perimetro = ((l*2) + (lX*2));
+    let area = (l * lX);
+    $('body').append(`<p>O retangulo tem ${perimetro.toFixed(3)} de perimetro e ${area.toFixed(3)} de area.<br>
+                    Seu outro lado tem ${lX.toFixed(3)} de comprimento.`)
     
 };
