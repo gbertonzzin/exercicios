@@ -33,13 +33,13 @@ PÁGINA PARA TESTAR EXERCÍCIOS DE JAVASCRIPT
                 var src = $("#scriptsrc").val()
                 console.log(src)
                 //$('#scriptid').attr('src', `${src}.js`) // Nao funciona
-                //$('body').append(`<script id="scriptid" type="text/javascript" src="${src}.js"><\/script>`);// Tb nao funciona
+                $('body').append(`<script id="scriptid" type="text/javascript" src="${src}.js"><\/script>`);// Tb nao funciona
                 //$.getScript(`${src}.js`) // Tb nao funciona
                 //$('body').remove('#scriptsrc')
                 })
             })
         </script>
-        <script id="scriptid" type="text/javascript" src="media.js"></script>
+        
 </body>
 
 </html>
