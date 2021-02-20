@@ -1,7 +1,17 @@
-.coluna{
-    display: flex;
-    flex: 50%
-}
 .valor{
     width: 100px;
+}
+#conteudo{
+    margin-left: 10px;
+}
+#ok-button{
+    margin: 5px;
+}
+
+body {
+    background-color: #b8b894;
+  }
+  
+.form-control{
+    margin: 5px;
 }

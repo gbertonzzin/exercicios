@@ -7,7 +7,7 @@ $(document).ready(function(){
     $("#titulo").html("CALCULADORA DE UNIDADES DE TEMPO")
     $("#descr").html("Transforma segundos, minutos e horas entre si")
     $("#parametros").append(`
-        <input type="number" id="valor" placeholder="Valor"</input><br/>
+        <input type="number" id="valor" min="1" max="999" placeholder="1-999"</input><br/>
         <select id="unidade">
         <option value="S">Segundos</option>
         <option value="M">Minutos</option>

@@ -1,10 +1,13 @@
 "use strict"
 
+var ladoa, ladob, ladoc;
+
 $(document).ready(function() {
     $("#titulo").html("CALCULADORA DE PARALELEPIPEDO")
-    $("#descr").html("Calcula a diagonal de um paralelepipedo retangulo")
-    $("#parametros").prepend(`<input type="number" id="lado_a" placeholder="Lado A"> <br>
-                            <input type="number" id="lado_b" placeholder="Lado B"> <br>
+    $("#descr").html("Calcula a diagonal, área das faces e volume de um paralelepipedo retangulo")
+    $("#parametros").prepend(`
+        <input type="number" id="lado_a" placeholder="Lado A"> <br>
+        <input type="number" id="lado_b" placeholder="Lado B"> <br>
                             <input type="number" id="lado_c" placeholder="Lado C" <br>`)
     $("#botao").click(function (){
         var ladoa = parseInt($('#lado_a').val())
@@ -16,10 +19,11 @@ $(document).ready(function() {
 
 
 function paralelepipedo(la, lb, lc){
-    let lX = Math.sqrt((d*d) - (l*l));
-    let perimetro = ((l*2) + (lX*2));
-    let area = (l * lX);
-    $('body').append(`<p>O retangulo tem ${perimetro.toFixed(3)} de perimetro e ${area.toFixed(3)} de area.<br>
-                    Seu outro lado tem ${lX.toFixed(3)} de comprimento.`)
-    
+    var d = Math.sqrt(la**2 + lb**2 + lc**2)
+    var a = ((la * lb) * 2) + ((lb * lc) * 2) + ((la * lc) * 2)
+    var v = (la * lb) * lc
+    $('body').append(`
+            <p>A diagonal de um parelelepípedo de dimensões ${la}, ${lb}, ${lc} é ${d.toFixed(2)}<br>
+            a área de suas faces é ${a.toFixed(2)} e seu volume é ${v.toFixed(2)}</p><br>
+            `)
 };
